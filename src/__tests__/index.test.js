@@ -4,9 +4,10 @@ import {
   render as rtlRender,
   waitFor,
 } from '@testing-library/react';
+import { renderHook, act } from "@testing-library/react-hooks";
 import user from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import Modal, { ModalsProvider, useModal } from '../';
+import Modal, {ModalsProvider, useModal, useOpen} from '../';
 
 const render = (ui, options = {}) => {
   const Wrapper = ({ children }) => <ModalsProvider>{children}</ModalsProvider>;
@@ -100,6 +101,19 @@ describe('Modal', () => {
       expect(queryByTestId('content')).not.toBeInTheDocument()
     );
   });
+
+  it('useOpen', async () => {
+    const {result} = renderHook(useOpen);
+    expect(result.current.isOpen).toBe(false);
+    act(() => result.current.toggle());
+    expect(result.current.isOpen).toBe(true);
+    act(() => result.current.toggle());
+    expect(result.current.isOpen).toBe(false);
+    act(() => result.current.open());
+    expect(result.current.isOpen).toBe(true);
+    act(() => result.current.close());
+    expect(result.current.isOpen).toBe(false);
+  });
 });
 
 function UsingModalHook() {
@@ -111,7 +125,7 @@ function UsingModalHook() {
         Close
       </button>
     )).then(() => {
-      console.log('closed');
+
     });
   }, [openModal]);
 
