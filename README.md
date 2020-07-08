@@ -2,7 +2,7 @@
 
 ### [Docs here](https://kseniya57.github.io/react-modal/?path=/docs/mdx-modal--page)
 
-[![NPM](https://img.shields.io/npm/v/@kseniya57/modal.svg)](https://www.npmjs.com/package/@kseniya57/modal) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/kseniya57/react-modal/badge.svg?branch=master)](https://coveralls.io/github/kseniya57/react-modal?branch=master)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/kseniya57/react-modal/badge.svg?branch=master)](https://coveralls.io/github/kseniya57/react-modal?branch=master)
 
 ## Install
 

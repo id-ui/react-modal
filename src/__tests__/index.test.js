@@ -8,6 +8,7 @@ import { renderHook, act } from "@testing-library/react-hooks";
 import user from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 import Modal, {ModalsProvider, useModal, useOpen} from '../';
+import {MODALS_ROOT_ID} from "../ModalsRoot";
 
 const render = (ui, options = {}) => {
   const Wrapper = ({ children }) => <ModalsProvider>{children}</ModalsProvider>;
@@ -59,6 +60,23 @@ describe('Modal', () => {
     );
     user.click(getByTestId('button'));
     await waitFor(() => expect(getByTestId('content')).toBeInTheDocument());
+  });
+
+  it('closes modal on down remote click', async () => {
+    const { getByTestId, queryByTestId, getByRole } = render(
+        <Modal content={<span data-testid="content">Content</span>}>
+          <button data-testid="button">Open Modal</button>
+        </Modal>
+    );
+    user.click(getByTestId("button"));
+    await waitFor(() => expect(getByTestId('content')).toBeInTheDocument());
+    const root = getByRole("dialog")
+    const button = document.createElement('button');
+    root.appendChild(button)
+    fireEvent.click(button, { which: 1 })
+    await waitFor(() =>
+        expect(queryByTestId('content')).not.toBeInTheDocument()
+    );
   });
 
   it('closes modal on down escape key', async () => {

@@ -27,6 +27,7 @@ export default ({
 
   useEffect(() => {
     const remoteClickListener = (e) => {
+
       if (
         isOpen &&
         closeOnRemoteClick &&
@@ -37,6 +38,7 @@ export default ({
         close();
       }
     };
+
     const keyDownListener = (e) => {
       if (
         isOpen &&
@@ -53,6 +55,7 @@ export default ({
       document.removeEventListener('click', remoteClickListener);
       document.removeEventListener('keydown', keyDownListener);
     };
+
   }, [isOpen, closeOnRemoteClick, close, closeOnEscape, closeOnEnter]);
 
   return {
