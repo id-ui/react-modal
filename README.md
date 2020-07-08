@@ -7,7 +7,11 @@
 ## Install
 
 ```bash
-npm install --save @kseniya57/react-modal
+npm install --save @kaprisa57/react-modal
+```
+
+```bash
+yarn add @kaprisa57/react-modal
 ```
 
 ## A basic example
@@ -15,7 +19,7 @@ npm install --save @kseniya57/react-modal
 ```jsx
 import React from 'react'
 
-import Modal, { ModalsRoot } from '@kseniya57/react-modal'
+import Modal, { ModalsRoot } from '@kaprisa57/react-modal'
 
 // Define where modals should render
 function App() {
@@ -54,7 +58,7 @@ Returns: Promise
 ```jsx
 import React from 'react'
 
-import { ModalsProvider, useModal } from '@kseniya57/react-modal'
+import { ModalsProvider, useModal } from '@kaprisa57/react-modal'
 
 // wrap your components in ModalsProvider
 function App() {

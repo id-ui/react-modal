@@ -1,23 +1,34 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const nodeExternals = require('webpack-node-externals');
+const path = require("path")
+
 module.exports = {
-  entry: './src/index.js',
-  externals: [nodeExternals()],
+  entry: "./src/index.js",
+  // Will defer minifaction to Applications bundler
+  mode: "development",
   output: {
-    filename: 'index.js',
-    path: path.resolve(__dirname, 'dist'),
-    library: '',
-    libraryTarget: 'commonjs',
+    filename: "index.js",
+    path: path.resolve(__dirname, "dist"),
+    libraryTarget: "umd",
   },
-  plugins: [new CleanWebpackPlugin()],
+
+  externals: [
+    "react",
+    "react-dom",
+    "lodash",
+    "prop-types",
+    "styled-components",
+  ],
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
-      },
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env", "@babel/preset-react"],
+          },
+        },
+      }
     ],
   },
-};
+}
