@@ -1,6 +1,6 @@
 {
   "name": "@kaprisa57/react-modal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Modal React Component",
   "author": "kaprisa57@gmail.com",
   "license": "MIT",
@@ -66,7 +66,6 @@
     "@testing-library/user-event": "^12.0.11",
     "babel-eslint": "^10.1.0",
     "babel-loader": "8.1.0",
-    "clean-webpack-plugin": "^3.0.0",
     "coveralls": "^3.1.0",
     "eslint": "^7.4.0",
     "eslint-plugin-jsx-a11y": "^6.3.1",
@@ -77,14 +76,11 @@
     "jest-axe": "^3.4.0",
     "kcd-scripts": "^6.2.4",
     "lint-staged": "^10.2.11",
-    "node-sass": "^4.14.1",
     "path": "^0.12.7",
     "react-test-renderer": "^16.13.1",
-    "sass-loader": "^9.0.1",
     "storybook-addon-react-docgen": "^1.2.41",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-cli": "^3.3.12"
   },
   "files": [
     "dist"
