@@ -4,11 +4,10 @@ import {
   render as rtlRender,
   waitFor,
 } from '@testing-library/react';
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act } from '@testing-library/react-hooks';
 import user from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import Modal, {ModalsProvider, useModal, useOpen} from '../';
-import {MODALS_ROOT_ID} from "../ModalsRoot";
+import Modal, { ModalsProvider, useModal, useOpen } from '../';
 
 const render = (ui, options = {}) => {
   const Wrapper = ({ children }) => <ModalsProvider>{children}</ModalsProvider>;
@@ -64,18 +63,18 @@ describe('Modal', () => {
 
   it('closes modal on down remote click', async () => {
     const { getByTestId, queryByTestId, getByRole } = render(
-        <Modal content={<span data-testid="content">Content</span>}>
-          <button data-testid="button">Open Modal</button>
-        </Modal>
+      <Modal content={<span data-testid="content">Content</span>}>
+        <button data-testid="button">Open Modal</button>
+      </Modal>
     );
-    user.click(getByTestId("button"));
+    user.click(getByTestId('button'));
     await waitFor(() => expect(getByTestId('content')).toBeInTheDocument());
-    const root = getByRole("dialog")
+    const root = getByRole('dialog');
     const button = document.createElement('button');
-    root.appendChild(button)
-    fireEvent.click(button, { which: 1 })
+    root.appendChild(button);
+    fireEvent.mouseDown(button, { which: 1 });
     await waitFor(() =>
-        expect(queryByTestId('content')).not.toBeInTheDocument()
+      expect(queryByTestId('content')).not.toBeInTheDocument()
     );
   });
 
@@ -121,7 +120,7 @@ describe('Modal', () => {
   });
 
   it('useOpen', async () => {
-    const {result} = renderHook(useOpen);
+    const { result } = renderHook(useOpen);
     expect(result.current.isOpen).toBe(false);
     act(() => result.current.toggle());
     expect(result.current.isOpen).toBe(true);
@@ -142,9 +141,7 @@ function UsingModalHook() {
       <button onClick={close} data-testid="content">
         Close
       </button>
-    )).then(() => {
-
-    });
+    )).then(() => {});
   }, [openModal]);
 
   return (

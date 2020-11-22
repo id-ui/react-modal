@@ -1,21 +1,21 @@
-const path = require("path")
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   // Will defer minifaction to Applications bundler
-  mode: "development",
+  mode: 'development',
   output: {
-    filename: "index.js",
-    path: path.resolve(__dirname, "dist"),
-    libraryTarget: "umd",
+    filename: 'index.js',
+    path: path.resolve(__dirname, 'dist'),
+    libraryTarget: 'umd',
   },
 
   externals: [
-    "react",
-    "react-dom",
-    "lodash",
-    "prop-types",
-    "styled-components",
+    'react',
+    'react-dom',
+    'lodash',
+    'prop-types',
+    'styled-components',
   ],
   module: {
     rules: [
@@ -23,12 +23,12 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
+            presets: ['@babel/preset-env', '@babel/preset-react'],
           },
         },
-      }
+      },
     ],
   },
-}
+};
