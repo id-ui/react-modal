@@ -19,10 +19,37 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["react", "jsx-a11y", "react-hooks"],
+  "plugins": ["react", "jsx-a11y", "react-hooks", "import"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "function-declaration",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "import/order": [
+      2,
+      {
+        "newlines-between": "never",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index"
+        ]
+      }
+    ],
+    "import/no-useless-path-segments": [
+      2,
+      {
+        "noUselessIndex": true
+      }
+    ]
   }
 }

@@ -1,6 +1,7 @@
 # Modal React Component
 
-### [Docs here](https://kseniya57.github.io/react-modal/?path=/docs/mdx-modal--page)
+- [Docs](https://kseniya57.github.io/react-modal/?path=/docs/modal--playground)
+- [Playground](https://kseniya57.github.io/react-modal/?path=/story/modal--playground)
 
 [![NPM](https://img.shields.io/npm/v/@kaprisa57/react-modal.svg)](https://www.npmjs.com/package/@kaprisa57/react-modal) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/kseniya57/react-modal/badge.svg?branch=master)](https://coveralls.io/github/kseniya57/react-modal?branch=master)
 
@@ -14,7 +15,13 @@ npm install --save @kaprisa57/react-modal
 yarn add @kaprisa57/react-modal
 ```
 
-## A basic example
+## Advantages
+- Fully and easily customizable.
+- Uses styled-components.
+- Provides useModal hook, which returns openModal promise.
+- Supports children and content functions and provides them with some useful props.
+
+## Basic Example
 
 ```jsx
 import React from 'react'
@@ -87,7 +94,7 @@ function Example() {
 }
 ```
 
-### [Docs here](https://kseniya57.github.io/react-modal/?path=/docs/mdx-modal--page)
+### See more details in [storybook](https://kseniya57.github.io/react-modal/?path=/docs/modal--playground)
 
 ## License
 

@@ -1,19 +1,64 @@
 import React, { Fragment, useCallback } from 'react';
-import { Button } from '@storybook/react/demo';
+import { withPropsTable } from 'storybook-addon-react-docgen';
 import Modal from './Modal';
 import ModalsProvider from './ModalsProvider';
-import { withA11y } from '@storybook/addon-a11y';
-import { withPropsTable } from 'storybook-addon-react-docgen';
-import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import centered from '@storybook/addon-centered/react';
 import { useModal } from './hooks';
 
 const withProvider = (story) => <ModalsProvider>{story()}</ModalsProvider>;
 
 export default {
   title: 'Modal',
-  decorators: [withA11y, withKnobs, withPropsTable, centered, withProvider],
+  component: Modal,
+  argTypes: {
+    closeOnEscape: {
+      control: 'boolean',
+      description: 'Whether close on escape button press or not',
+      defaultValue: true,
+      table: {
+        defaultValue: { summary: true },
+      },
+    },
+    closeOnEnter: {
+      control: 'boolean',
+      description: 'Whether close on enter button press or not',
+      defaultValue: false,
+      table: {
+        defaultValue: { summary: false },
+      },
+    },
+    closeOnRemoteClick: {
+      control: 'boolean',
+      description:
+        "Whether close on remote click or not. Default trigger === 'click' || trigger === 'contextMenu'.",
+      defaultValue: undefined,
+      table: {
+        defaultValue: { summary: undefined },
+      },
+    },
+    children: {
+      disabled: true,
+      description:
+        'Accepts strings, numbers, elements, function (or Component). Modal provides prop isOpen and methods toggle, open and close to children function arguments or Component props.',
+    },
+    content: {
+      control: 'string',
+      description:
+        'Accepts strings, numbers, elements, function (or Component). Modal provides method close to content function arguments or Component props.',
+    },
+    className: { control: 'string', description: 'Modal content className' },
+    onClose: {
+      action: 'onClose',
+      description: 'Function, called when modal closes',
+    },
+    tag: {
+      control: 'string',
+      description:
+        'Tag for modal trigger (used only if children are not a function)',
+      defaultValue: 'div',
+      table: { defaultValue: { summary: 'div' } },
+    },
+  },
+  decorators: [withPropsTable, withProvider],
   parameters: {
     props: {
       propTablesInclude: [Modal],
@@ -21,27 +66,28 @@ export default {
   },
 };
 
-export const playground = () => (
-  <Modal
-    content={text('content', 'Hello!')}
-    closeOnRemoteClick={boolean('closeOnRemoteClick', true)}
-    closeOnEscape={boolean('closeOnEscape', true)}
-    closeOnEnter={boolean('closeOnEnter', false)}
-    onClose={action('onClose')}
-  >
-    <Button type="button">Open Modal</Button>
+export const playground = (props) => (
+  <Modal {...props}>
+    <button type="button">Open Modal</button>
   </Modal>
 );
 
+playground.args = {
+  closeOnEscape: true,
+  closeOnEnter: true,
+  closeOnRemoteClick: true,
+  content: 'Hi!',
+};
+
 export const basicModal = () => (
   <Modal content="Hello!">
-    <Button type="button">Open Modal</Button>
+    <button type="button">Open Modal</button>
   </Modal>
 );
 
 export const closeModalByContent = () => (
-  <Modal content={({ close }) => <Button onClick={close}>Close</Button>}>
-    <Button type="button">Open Modal</Button>
+  <Modal content={({ close }) => <button onClick={close}>Close</button>}>
+    <button type="button">Open Modal</button>
   </Modal>
 );
 
@@ -50,20 +96,20 @@ export const customWrapperTag = () => (
     content={'Trigger wrapper is span, but it is div by default'}
     tag="span"
   >
-    <Button type="button">Open Modal</Button>
+    <button type="button">Open Modal</button>
   </Modal>
 );
 
 export const triggerByChildren = () => (
-  <Modal content={({ close }) => <Button onClick={close}>Close</Button>}>
+  <Modal content={({ close }) => <button onClick={close}>Close</button>}>
     {({ open }) => (
       <Fragment>
         <div style={{ marginBottom: '20px' }}>
-          <Button type="button">Simple Button</Button>
-          <Button type="button" onClick={open}>
+          <button type="button">Simple button</button>
+          <button type="button" onClick={open}>
             Open Modal
-          </Button>
-          <Button type="button">Simple Button</Button>
+          </button>
+          <button type="button">Simple button</button>
         </div>
         <div>
           <input placeholder="Start typing to open modal.." onChange={open} />
@@ -86,8 +132,8 @@ function UsingModalHook() {
     (index) => () => {
       openModal(({ close }) => (
         <div>
-          <Button onClick={handleOpen(index + 1)}>Open another modal</Button>
-          <Button onClick={close}>Close</Button>
+          <button onClick={handleOpen(index + 1)}>Open another modal</button>
+          <button onClick={close}>Close</button>
         </div>
       )).then(() => {
         alert('Modal closed' + index);
@@ -96,7 +142,7 @@ function UsingModalHook() {
     [openModal]
   );
 
-  return <Button onClick={handleOpen(0)}>Open modal</Button>;
+  return <button onClick={handleOpen(0)}>Open modal</button>;
 }
 
 export const useModalHook = () => <UsingModalHook />;

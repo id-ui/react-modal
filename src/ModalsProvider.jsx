@@ -7,8 +7,8 @@ import React, {
   useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-import ModalsRoot from './ModalsRoot';
 import _ from 'lodash';
+import ModalsRoot from './ModalsRoot';
 import Modal from './Modal';
 
 export const ModalsContext = createContext({});

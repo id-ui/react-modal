@@ -7,10 +7,12 @@ import {
 import { renderHook, act } from '@testing-library/react-hooks';
 import user from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import Modal, { ModalsProvider, useModal, useOpen } from '../';
+import Modal, { ModalsProvider, useModal, useOpen } from '..';
 
 const render = (ui, options = {}) => {
-  const Wrapper = ({ children }) => <ModalsProvider>{children}</ModalsProvider>;
+  function Wrapper({ children }) {
+    return <ModalsProvider>{children}</ModalsProvider>;
+  }
   return rtlRender(ui, { wrapper: Wrapper, ...options });
 };
 

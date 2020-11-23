@@ -2,20 +2,19 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
-  // Will defer minifaction to Applications bundler
   mode: 'development',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
   },
-
   externals: [
     'react',
     'react-dom',
     'lodash',
     'prop-types',
     'styled-components',
+    'framer-motion',
   ],
   module: {
     rules: [
@@ -26,9 +25,15 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
+            cacheDirectory: true,
           },
         },
       },
     ],
+  },
+  resolve: {
+    modules: [path.resolve('./src/'), 'node_modules'],
+    extensions: ['.js', '.jsx', '.json'],
+    mainFields: ['browser', 'module', 'main'],
   },
 };
