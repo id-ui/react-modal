@@ -1,18 +1,18 @@
 # Modal React Component
 
-- [Docs](https://kseniya57.github.io/react-modal/?path=/docs/modal--playground)
-- [Playground](https://kseniya57.github.io/react-modal/?path=/story/modal--playground)
+- [Docs](https://id-ui.github.io/react-modal/?path=/docs/modal--playground)
+- [Playground](https://id-ui.github.io/react-modal/?path=/story/modal--playground)
 
-[![NPM](https://img.shields.io/npm/v/@kaprisa57/react-modal.svg)](https://www.npmjs.com/package/@kaprisa57/react-modal) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/kseniya57/react-modal/badge.svg?branch=master)](https://coveralls.io/github/kseniya57/react-modal?branch=master)
+[![NPM](https://img.shields.io/npm/v/@idui/react-modal.svg)](https://www.npmjs.com/package/@idui/react-modal) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/id-ui/react-modal/badge.svg?branch=master)](https://coveralls.io/github/id-ui/react-modal?branch=master)
 
 ## Install
 
 ```bash
-npm install --save @kaprisa57/react-modal
+npm install --save @idui/react-modal
 ```
 
 ```bash
-yarn add @kaprisa57/react-modal
+yarn add @idui/react-modal
 ```
 
 ## Advantages
@@ -26,7 +26,7 @@ yarn add @kaprisa57/react-modal
 ```jsx
 import React from 'react'
 
-import Modal, { ModalsRoot } from '@kaprisa57/react-modal'
+import Modal, { ModalsRoot } from '@idui/react-modal'
 
 // Define where modals should render
 function App() {
@@ -65,7 +65,7 @@ Returns: Promise
 ```jsx
 import React from 'react'
 
-import { ModalsProvider, useModal } from '@kaprisa57/react-modal'
+import { ModalsProvider, useModal } from '@idui/react-modal'
 
 // wrap your components in ModalsProvider
 function App() {
@@ -94,8 +94,8 @@ function Example() {
 }
 ```
 
-### See more details in [storybook](https://kseniya57.github.io/react-modal/?path=/docs/modal--playground)
+### See more details in [storybook](https://id-ui.github.io/react-modal/?path=/docs/modal--playground)
 
 ## License
 
-MIT © [kaprisa57@gmail.com](https://github.com/kaprisa57@gmail.com)
+MIT © [kaprisa57@gmail.com](https://github.com/id-ui)

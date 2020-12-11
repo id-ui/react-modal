@@ -1,10 +1,10 @@
 {
-  "name": "@kaprisa57/react-modal",
-  "version": "0.0.8",
+  "name": "@idui/react-modal",
+  "version": "1.0.0",
   "description": "Modal React Component",
   "author": "kaprisa57@gmail.com",
   "license": "MIT",
-  "repository": "kseniya57/react-modal",
+  "repository": "id-ui/react-modal",
   "main": "dist/index.js",
   "source": "src/index.js",
   "engines": {
@@ -70,12 +70,12 @@
     "kcd-scripts": "^6.7.0",
     "lint-staged": "^10.5.1",
     "path": "^0.12.7",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-test-renderer": "^16.14.0",
     "storybook-addon-react-docgen": "^1.2.42",
     "webpack": "^5.0.0-rc.6",
-    "webpack-cli": "^4.0.0-rc.1",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "webpack-cli": "^4.0.0-rc.1"
   },
   "files": [
     "dist"
