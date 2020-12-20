@@ -1,9 +1,10 @@
 # Modal React Component
 
-- [Docs](https://id-ui.github.io/react-modal/?path=/docs/modal--playground)
-- [Playground](https://id-ui.github.io/react-modal/?path=/story/modal--playground)
-
-[![NPM](https://img.shields.io/npm/v/@idui/react-modal.svg)](https://www.npmjs.com/package/@idui/react-modal) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Coverage Status](https://coveralls.io/repos/github/id-ui/react-modal/badge.svg?branch=master)](https://coveralls.io/github/id-ui/react-modal?branch=master)
+[![NPM](https://img.shields.io/npm/v/@idui/react-modal.svg)](https://www.npmjs.com/package/@idui/react-modal/)
+[![Size](https://img.shields.io/bundlephobia/min/@idui/react-modal)](https://www.npmjs.com/package/@idui/react-modal)
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![Coverage Status](https://coveralls.io/repos/github/id-ui/react-modal/badge.svg?branch=main)](https://coveralls.io/github/id-ui/react-modal?branch=main)
+[![LICENSE](https://img.shields.io/github/license/id-ui/react-modal)](https://github.com/id-ui/react-modal/blob/main/LICENSE)
 
 ## Install
 
