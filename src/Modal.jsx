@@ -63,7 +63,7 @@ Modal.defaultProps = {
   closeOnRemoteClick: true,
   closeOnEscape: true,
   closeOnEnter: false,
-  tag: 'div',
+  tag: 'div'
 };
 
 Modal.propTypes = {
@@ -77,7 +77,7 @@ Modal.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   /**
    * Accepts strings, numbers, elements, function (or Component)
@@ -89,7 +89,7 @@ Modal.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
     PropTypes.string,
-    PropTypes.number,
+    PropTypes.number
   ]),
   /**
    * Modal content className
@@ -102,17 +102,17 @@ Modal.propTypes = {
    */
   onClose: PropTypes.func,
   /**
-   * Should Modal close itself on down Escape key?
+   * Whether close modal on Escape button press or not
    * @default true
    */
   closeOnEscape: PropTypes.bool,
   /**
-   * Should Modal close itself on down Enter key?
+   * Whether close modal on Enter button press or not
    * @default false
    */
   closeOnEnter: PropTypes.bool,
   /**
-   * Should Modal close itself on remote click?
+   * Whether close modal on remote click or not
    * @default true
    */
   closeOnRemoteClick: PropTypes.bool,
@@ -120,7 +120,7 @@ Modal.propTypes = {
    * Tag for modal trigger (used only if children are not a function)
    * @default div
    */
-  tag: PropTypes.string,
+  tag: PropTypes.string
 };
 
 export default Modal;

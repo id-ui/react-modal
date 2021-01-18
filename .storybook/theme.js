@@ -33,5 +33,5 @@ export default create({
 
   brandTitle: 'IDUI',
   brandUrl: 'https://github.com/id-ui',
-  brandImage: 'https://avatars0.githubusercontent.com/u/75687767?s=200&v=4',
+  brandImage: 'https://avatars0.githubusercontent.com/u/75687767?s=200&v=4'
 });

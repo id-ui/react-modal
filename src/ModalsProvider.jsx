@@ -4,7 +4,7 @@ import React, {
   useState,
   createContext,
   useEffect,
-  useRef,
+  useRef
 } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
@@ -29,7 +29,7 @@ function ModalsProvider({ children }) {
 
   const openModal = useCallback(
     (Component, modalProps = {}) =>
-      new Promise((resolve) => {
+      new Promise(resolve => {
         const key = parseInt(_.last(_.keys(modalsRef.current)) || 0, 10) + 1;
 
         const handleClose = () => {
@@ -50,7 +50,7 @@ function ModalsProvider({ children }) {
             >
               {modalTrigger}
             </Modal>
-          ),
+          )
         });
       }),
     [modalTrigger]
@@ -70,8 +70,8 @@ function ModalsProvider({ children }) {
 ModalsProvider.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
-  ]),
+    PropTypes.arrayOf(PropTypes.node)
+  ])
 };
 
 export default ModalsProvider;

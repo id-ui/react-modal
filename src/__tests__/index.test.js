@@ -2,12 +2,13 @@ import React, { useCallback } from 'react';
 import {
   fireEvent,
   render as rtlRender,
-  waitFor,
+  waitFor
 } from '@testing-library/react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import user from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import Modal, { ModalsProvider, useModal, useOpen } from '..';
+import Modal, { ModalsProvider } from '..';
+import { useModal, useOpen } from '../hooks'
 
 const render = (ui, options = {}) => {
   function Wrapper({ children }) {

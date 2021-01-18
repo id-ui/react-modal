@@ -5,7 +5,7 @@ export default ({
   closeOnEscape,
   closeOnEnter,
   closeOnRemoteClick,
-  onClose = _.noop,
+  onClose = _.noop
 } = {}) => {
   const target = useRef();
   const parentNode = useRef(document.body);
@@ -26,7 +26,7 @@ export default ({
   }, [isOpen]);
 
   useEffect(() => {
-    const remoteClickListener = (e) => {
+    const remoteClickListener = e => {
       if (
         isOpen &&
         closeOnRemoteClick &&
@@ -38,7 +38,7 @@ export default ({
       }
     };
 
-    const keyDownListener = (e) => {
+    const keyDownListener = e => {
       if (
         isOpen &&
         [closeOnEscape && 'Escape', closeOnEnter && 'Enter'].includes(e.key)
@@ -63,6 +63,6 @@ export default ({
     close,
     toggle,
     target,
-    parentNode,
+    parentNode
   };
 };

@@ -39,14 +39,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export const parameters = {
-  layout: 'centered',
+  layout: 'centered'
 };
 
 export const decorators = [
-  (Story) => (
+  Story => (
     <Fragment>
       <Story />
       <GlobalStyle />
     </Fragment>
-  ),
+  )
 ];
