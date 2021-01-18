@@ -1,5 +1,4 @@
 import React, { Fragment, useCallback } from 'react';
-import { withPropsTable } from 'storybook-addon-react-docgen';
 import Modal from './Modal';
 import ModalsProvider from './ModalsProvider';
 import { useModal } from './hooks';
@@ -58,12 +57,7 @@ export default {
       table: { defaultValue: { summary: 'div' } }
     }
   },
-  decorators: [withPropsTable, withProvider],
-  parameters: {
-    props: {
-      propTablesInclude: [Modal]
-    }
-  }
+  decorators: [withProvider],
 };
 
 export const playground = props => (
