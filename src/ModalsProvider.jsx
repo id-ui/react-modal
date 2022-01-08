@@ -4,10 +4,10 @@ import React, {
   useState,
   createContext,
   useEffect,
-  useRef
+  useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+import { last, omit } from 'lodash';
 import ModalsRoot from './ModalsRoot';
 import Modal from './Modal';
 
@@ -29,12 +29,12 @@ function ModalsProvider({ children }) {
 
   const openModal = useCallback(
     (Component, modalProps = {}) =>
-      new Promise(resolve => {
-        const key = parseInt(_.last(_.keys(modalsRef.current)) || 0, 10) + 1;
+      new Promise((resolve) => {
+        const key = parseInt(last(Object.keys(modalsRef.current)) || 0, 10) + 1;
 
         const handleClose = () => {
           setTimeout(() => {
-            setModals(_.omit(modalsRef.current, key));
+            setModals(omit(modalsRef.current, key));
           }, 100);
           resolve();
         };
@@ -50,7 +50,7 @@ function ModalsProvider({ children }) {
             >
               {modalTrigger}
             </Modal>
-          )
+          ),
         });
       }),
     [modalTrigger]
@@ -60,7 +60,7 @@ function ModalsProvider({ children }) {
     <Fragment>
       <ModalsContext.Provider value={{ openModal }}>
         {children}
-        {_.values(modals)}
+        {Object.values(modals)}
       </ModalsContext.Provider>
       <ModalsRoot />
     </Fragment>
@@ -70,8 +70,8 @@ function ModalsProvider({ children }) {
 ModalsProvider.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node)
-  ])
+    PropTypes.arrayOf(PropTypes.node),
+  ]),
 };
 
 export default ModalsProvider;

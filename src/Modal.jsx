@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { AnimatePresence } from 'framer-motion';
-import _ from 'lodash';
+import { isFunction } from 'lodash';
 import { useOpen } from './hooks';
 import { StyledModal, ModalOverlay, ModalWindow } from './styled';
 import { MODALS_ROOT_ID } from './ModalsRoot';
@@ -38,7 +38,7 @@ function Modal({ children, tag, content, className, ...useOpenArgs }) {
                     ref={target}
                     className={className}
                   >
-                    {_.isFunction(content) ? content({ close }) : content}
+                    {isFunction(content) ? content({ close }) : content}
                   </StyledModal>
                 </ModalWindow>
               </ModalOverlay>
@@ -47,7 +47,7 @@ function Modal({ children, tag, content, className, ...useOpenArgs }) {
           container
         )}
 
-      {_.isFunction(children) ? (
+      {isFunction(children) ? (
         children({ isOpen, toggle, close, open })
       ) : (
         <Trigger onClick={toggle} role="button">
@@ -59,11 +59,11 @@ function Modal({ children, tag, content, className, ...useOpenArgs }) {
 }
 
 Modal.defaultProps = {
-  onClose: _.noop,
+  onClose: () => {},
   closeOnRemoteClick: true,
   closeOnEscape: true,
   closeOnEnter: false,
-  tag: 'div'
+  tag: 'div',
 };
 
 Modal.propTypes = {
@@ -77,7 +77,7 @@ Modal.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   /**
    * Accepts strings, numbers, elements, function (or Component)
@@ -89,7 +89,7 @@ Modal.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   /**
    * Modal content className
@@ -120,7 +120,7 @@ Modal.propTypes = {
    * Tag for modal trigger (used only if children are not a function)
    * @default div
    */
-  tag: PropTypes.string
+  tag: PropTypes.string,
 };
 
 export default Modal;

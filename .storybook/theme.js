@@ -32,6 +32,6 @@ export default create({
   inputBorderRadius: 5,
 
   brandTitle: 'IDUI',
-  brandUrl: 'https://github.com/id-ui',
-  brandImage: 'https://avatars0.githubusercontent.com/u/75687767?s=200&v=4'
+  brandUrl: 'http://idui.online',
+  brandImage: 'https://avatars0.githubusercontent.com/u/75687767?s=200&v=4',
 });

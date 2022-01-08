@@ -1,7 +1,10 @@
 {
   "plugins": [
-    ["babel-plugin-styled-components", {
-      "namespace": "idui-modal"
-    }]
+    [
+      "babel-plugin-styled-components",
+      {
+        "namespace": "idui-modal"
+      }
+    ]
   ]
 }

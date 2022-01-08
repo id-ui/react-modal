@@ -6,7 +6,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
   },
   externals: [
     'react',
@@ -14,7 +14,7 @@ module.exports = {
     'lodash',
     'prop-types',
     'styled-components',
-    'framer-motion'
+    'framer-motion',
   ],
   module: {
     rules: [
@@ -25,15 +25,15 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-            cacheDirectory: true
-          }
-        }
-      }
-    ]
+            cacheDirectory: true,
+          },
+        },
+      },
+    ],
   },
   resolve: {
     modules: [path.resolve('./src/'), 'node_modules'],
     extensions: ['.js', '.jsx', '.json'],
-    mainFields: ['browser', 'module', 'main']
-  }
+    mainFields: ['browser', 'module', 'main'],
+  },
 };
